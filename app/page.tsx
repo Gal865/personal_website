@@ -1,0 +1,47 @@
+"use client";
+
+import { useState } from "react";
+import { TransitionLink } from "./components/PageTransition";
+
+const Arrow = () => <span className="arrow" aria-hidden="true">↗</span>;
+
+export default function Home() {
+  return (
+    <main>
+      <section className="hero shell" id="top">
+        <div className="hero-copy">
+          <h1 className="hero-title reveal delay-1">Part builder<span className="hero-punctuation">,</span> part explorer<span className="hero-punctuation">,</span><br />
+            <span className="hero-last-line">living with intention.</span>
+          </h1>
+        </div>
+      </section>
+
+      <section className="work-section shell" id="work">
+        <div className="section-heading work-heading">
+          <p className="eyebrow">Current Project</p>
+          <p className="section-note">Building what I believe in.</p>
+        </div>
+
+        <article className="project featured" id="essence">
+          <div className="project-visual essence-visual">
+            <div className="phone-placeholder">
+              <span>APP SCREENSHOT</span>
+              <small>Drop a product image here</small>
+            </div>
+            <div className="orb orb-one" /><div className="orb orb-two" />
+          </div>
+          <div className="project-copy">
+            <h2 className="essence-title">Essence</h2>
+            <p>A dating app rethinking online dating with one simple principle: connection over validation.<br /><TransitionLink className="essence-notes-link" href="/notes">What sparked <span className="essence-notes-word">Essence</span><span className="essence-notes-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M9 5h10v10" /></svg></span></TransitionLink></p>
+            <div className="tags">
+              <div className="tag-row"><span className="tag--expo">Expo</span><span className="tag--react-native">React Native</span><span className="tag--supabase">Supabase</span></div>
+              <div className="tag-row"><span className="tag--aws">AWS</span><span className="tag--product-design">Product Design</span><span className="tag--typescript">TypeScript</span></div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+    </main>
+  );
+}

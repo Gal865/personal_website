@@ -1,0 +1,25 @@
+"use client";
+
+import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { TransitionLink } from "./PageTransition";
+
+export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <nav className="nav shell" aria-label="Main navigation">
+      <TransitionLink className="wordmark" href="/" onClick={closeMenu} aria-label="Home">Gal Nissan<span>.</span></TransitionLink>
+      <div className={menuOpen ? "nav-links is-open" : "nav-links"}>
+        {pathname === "/work" ? <span className="nav-current" aria-current="page">Work</span> : <TransitionLink href="/work" onClick={closeMenu}>Work</TransitionLink>}
+        {pathname === "/trips" ? <span className="nav-current" aria-current="page">Trips</span> : <TransitionLink href="/trips" onClick={closeMenu}>Trips</TransitionLink>}
+        {pathname === "/notes" ? <span className="nav-current" aria-current="page">Notes</span> : <TransitionLink href="/notes" onClick={closeMenu}>Notes</TransitionLink>}
+      </div>
+      <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>
+        <i /><i />
+      </button>
+    </nav>
+  );
+}
