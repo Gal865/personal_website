@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${itim.variable} ${merriweatherSans.variable} ${merriweatherSansBold.variable}`}><PageTransition><SiteHeader />{children}<SiteFooter /></PageTransition></body>
+      <body className={`${playfair.variable} ${itim.variable} ${merriweatherSans.variable} ${merriweatherSansBold.variable}`}><PageTransition><SiteHeader /><div className="page-transition-content">{children}<SiteFooter /></div></PageTransition></body>
     </html>
   );
 }

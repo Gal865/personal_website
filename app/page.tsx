@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
 import { TransitionLink } from "./components/PageTransition";
+import essenceScreenshot from "../assets/pictures/Essence.png";
 
 const Arrow = () => <span className="arrow" aria-hidden="true">↗</span>;
 
@@ -11,7 +12,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="hero-copy">
           <h1 className="hero-title reveal delay-1">Part builder<span className="hero-punctuation">,</span> part explorer<span className="hero-punctuation">,</span><br />
-            <span className="hero-last-line">living with intention.</span>
+            <span className="hero-last-line">living with <em>intention</em><span className="hero-period">.</span></span>
           </h1>
         </div>
       </section>
@@ -24,10 +25,12 @@ export default function Home() {
 
         <article className="project featured" id="essence">
           <div className="project-visual essence-visual">
-            <div className="phone-placeholder">
-              <span>APP SCREENSHOT</span>
-              <small>Drop a product image here</small>
-            </div>
+            <Image
+              className="essence-screenshot"
+              src={essenceScreenshot}
+              alt="Essence app coming soon screen"
+              priority
+            />
             <div className="orb orb-one" /><div className="orb orb-two" />
           </div>
           <div className="project-copy">
@@ -35,7 +38,7 @@ export default function Home() {
             <p>A dating app rethinking online dating with one simple principle: connection over validation.<br /><TransitionLink className="essence-notes-link" href="/notes">What sparked <span className="essence-notes-word">Essence</span><span className="essence-notes-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M9 5h10v10" /></svg></span></TransitionLink></p>
             <div className="tags">
               <div className="tag-row"><span className="tag--expo">Expo</span><span className="tag--react-native">React Native</span><span className="tag--supabase">Supabase</span></div>
-              <div className="tag-row"><span className="tag--aws">AWS</span><span className="tag--product-design">Product Design</span><span className="tag--typescript">TypeScript</span></div>
+              <div className="tag-row"><span className="tag--aws">AWS</span><span className="tag--ux-research">UX Research</span><span className="tag--typescript">TypeScript</span></div>
             </div>
           </div>
         </article>
