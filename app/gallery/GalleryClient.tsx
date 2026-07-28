@@ -54,8 +54,10 @@ export default function GalleryClient({ collections }: { collections: Collection
                 </div>
               </div>
               <div className="gallery-card-footer">
-                <div><h2 style={{ color: collection.titleColor }}>{collection.name}</h2><p>{collection.photos.length} photos</p></div>
-                <button type="button" className="gallery-card-link" onClick={() => setActiveCollection(collection)}>View gallery</button>
+                <div>
+                  <button type="button" className="gallery-card-title-button" onClick={() => setActiveCollection(collection)} aria-label={`View ${collection.name} gallery`}><h2 style={{ color: collection.titleColor }}>{collection.name}</h2></button>
+                  <p>{collection.photos.length} photos</p>
+                </div>
               </div>
             </article>
           );
