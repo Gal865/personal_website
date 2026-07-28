@@ -14,7 +14,7 @@ export function SiteHeader() {
       <TransitionLink className="wordmark" href="/" onClick={closeMenu} aria-label="Home">Gal Nissan<span>.</span></TransitionLink>
       <div className={menuOpen ? "nav-links is-open" : "nav-links"}>
         {pathname === "/work" ? <span className="nav-current" aria-current="page">Work</span> : <TransitionLink href="/work" onClick={closeMenu}>Work</TransitionLink>}
-        {pathname === "/trips" ? <span className="nav-current" aria-current="page">Trips</span> : <TransitionLink href="/trips" onClick={closeMenu}>Trips</TransitionLink>}
+        {pathname === "/gallery" ? <span className="nav-current" aria-current="page">Gallery</span> : <TransitionLink href="/gallery" onClick={closeMenu}>Gallery</TransitionLink>}
         {pathname === "/notes" ? <span className="nav-current" aria-current="page">Notes</span> : <TransitionLink href="/notes" onClick={closeMenu}>Notes</TransitionLink>}
       </div>
       <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu" aria-expanded={menuOpen}>
