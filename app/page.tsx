@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { TransitionLink } from "./components/PageTransition";
-import essenceScreenshot from "../assets/pictures/Essence.png";
+import essenceScreenshot from "../assets/pictures/Essence.webp";
 
 const Arrow = () => <span className="arrow" aria-hidden="true">↗</span>;
 
@@ -29,7 +29,7 @@ export default function Home() {
               className="essence-screenshot"
               src={essenceScreenshot}
               alt="Essence app coming soon screen"
-              priority
+              loading="lazy"
             />
             <div className="orb orb-one" /><div className="orb orb-two" />
           </div>

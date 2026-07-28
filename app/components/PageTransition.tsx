@@ -3,7 +3,7 @@
 import { createContext, useContext, useEffect, useRef, useState, type AnchorHTMLAttributes, type MouseEvent, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-type TransitionContextValue = { navigate: (href: string) => void };
+type TransitionContextValue = { navigate: (href: string) => void; prefetch: (href: string) => void };
 
 const TransitionContext = createContext<TransitionContextValue | null>(null);
 const transitionDuration = 120;
@@ -24,6 +24,13 @@ export function PageTransition({ children }: { children: ReactNode }) {
     if (timer.current) window.clearTimeout(timer.current);
   }, []);
 
+  useEffect(() => {
+    const prefetchTimer = window.setTimeout(() => {
+      ["/", "/work", "/gallery"].forEach((route) => router.prefetch(route));
+    }, 300);
+    return () => window.clearTimeout(prefetchTimer);
+  }, [router]);
+
   const navigate = (href: string) => {
     if (phase === "exiting") return;
     setPhase("exiting");
@@ -34,10 +41,14 @@ export function PageTransition({ children }: { children: ReactNode }) {
     }, transitionDuration);
   };
 
-  return <TransitionContext.Provider value={{ navigate }}><div className={`page-transition page-transition--${phase}`}>{children}</div></TransitionContext.Provider>;
+  const prefetch = (href: string) => {
+    if (href.startsWith("/")) router.prefetch(href);
+  };
+
+  return <TransitionContext.Provider value={{ navigate, prefetch }}><div className={`page-transition page-transition--${phase}`}>{children}</div></TransitionContext.Provider>;
 }
 
-export function TransitionLink({ href, onClick, ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
+export function TransitionLink({ href, onClick, onFocus, onMouseEnter, ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }) {
   const transition = useContext(TransitionContext);
 
   const handleClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -47,5 +58,7 @@ export function TransitionLink({ href, onClick, ...props }: AnchorHTMLAttributes
     transition.navigate(href);
   };
 
-  return <a href={href} onClick={handleClick} {...props} />;
+  const prefetch = () => transition?.prefetch(href);
+
+  return <a href={href} onClick={handleClick} onFocus={(event) => { onFocus?.(event); prefetch(); }} onMouseEnter={(event) => { onMouseEnter?.(event); prefetch(); }} {...props} />;
 }

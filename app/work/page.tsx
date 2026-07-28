@@ -1,7 +1,7 @@
 const experience = [
   {
     company: "Navy Federal Credit Union",
-    role: "Data Analyst",
+    role: "Junior Data Analyst",
     dates: "Current",
     current: true,
     highlights: [
@@ -12,7 +12,7 @@ const experience = [
   },
   {
     company: "UnitedHealth Group",
-    role: "Data Analyst",
+    role: "Junior Data Analyst",
     dates: "May 2024 – Aug 2025",
     highlights: [
       "Created and configured Splunk indexes to organize log data by application, environment, and retention requirements.",
@@ -22,7 +22,7 @@ const experience = [
   },
   {
     company: "Bank of Montreal",
-    role: "SOC Analyst",
+    role: "SOC Analyst Intern",
     dates: "May 2024 – Oct 2024",
     highlights: [
       "Conducted terabyte-scale log analysis to identify abnormal ingestion patterns and troubleshoot data quality issues across enterprise sources.",
