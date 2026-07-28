@@ -15,9 +15,9 @@ const experience = [
     role: "Junior Data Analyst",
     dates: "May 2024 – Aug 2025",
     highlights: [
-      "Created and configured Splunk indexes to organize log data by application, environment, and retention requirements.",
-      "Investigated application and ingestion outages by analyzing Splunk logs and troubleshooting services, processes, and connectivity on Linux servers.",
-      "Resolved missing and delayed log issues by tracing data from source systems through the Splunk ingestion pipeline and confirming successful indexing.",
+      "Conducted terabyte-scale log analysis to identify abnormal ingestion patterns and troubleshoot data quality issues across enterprise sources.",
+      "Identified and removed redundant Splunk sourcetypes, reducing unnecessary data ingestion and associated storage costs.",
+      "Resolved onboarding blockers for 12+ architects by correcting Splunk inputs.conf and props.conf configurations across HEC and Syslog."
     ],
   },
   {
@@ -25,9 +25,9 @@ const experience = [
     role: "SOC Analyst Intern",
     dates: "May 2024 – Oct 2024",
     highlights: [
-      "Conducted terabyte-scale log analysis to identify abnormal ingestion patterns and troubleshoot data quality issues across enterprise sources.",
-      "Identified and removed redundant Splunk sourcetypes, reducing unnecessary data ingestion and associated storage costs.",
-      "Resolved onboarding blockers for 12+ architects by correcting Splunk inputs.conf and props.conf configurations across HEC and Syslog.",
+      "Centralized vulnerability data from multiple Mac OS versions into a single, dynamic Excel dashboard for real‑time visibility.",
+      "Improved prioritization by integrating Qualys PoC results to rank vulnerabilities by severity and business impact.",
+      "Accelerated remediation by clearly defining next‑step actions, reducing resolution timelines and improving security posture.",
     ],
   },
 ];
