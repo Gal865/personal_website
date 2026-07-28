@@ -35,7 +35,7 @@ export default function Home() {
           </div>
           <div className="project-copy">
             <h2 className="essence-title">Essence</h2>
-            <p>Rethinking online dating with one simple principle: connection over validation.<br /><TransitionLink className="essence-notes-link" href="/notes">What sparked <span className="essence-notes-word">Essence</span><span className="essence-notes-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 19 19 5M9 5h10v10" /></svg></span></TransitionLink></p>
+            <p>Rethinking online dating with one simple principle: connection over validation.</p>
             <div className="tags">
               <div className="tag-row"><span className="tag--expo">Expo</span><span className="tag--react-native">React Native</span><span className="tag--supabase">Supabase</span></div>
               <div className="tag-row"><span className="tag--aws">AWS</span><span className="tag--ux-research">UX Research</span><span className="tag--typescript">TypeScript</span></div>
