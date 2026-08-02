@@ -26,16 +26,22 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const prefetchTimer = window.setTimeout(() => {
-      ["/", "/work", "/gallery"].forEach((route) => router.prefetch(route));
+      ["/", "/work", "/gallery", "/notes"].forEach((route) => router.prefetch(route));
     }, 300);
     return () => window.clearTimeout(prefetchTimer);
   }, [router]);
 
   const navigate = (href: string) => {
     if (phase === "exiting") return;
+    const destination = href.startsWith("#") ? `${pathname}${href}` : href;
+
+    if (destination === pathname) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     setPhase("exiting");
     timer.current = window.setTimeout(() => {
-      const destination = href.startsWith("#") ? `${pathname}${href}` : href;
       router.push(destination);
       timer.current = null;
     }, transitionDuration);

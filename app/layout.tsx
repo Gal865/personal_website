@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next";
 import logo from "../assets/logo/logo-tab-rounded.png";
 import { PageTransition } from "./components/PageTransition";
 import { SiteFooter } from "./components/SiteFooter";
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${itim.variable} ${merriweatherSans.variable} ${merriweatherSansBold.variable}`}><PageTransition><SiteHeader /><div className="page-transition-content">{children}<SiteFooter /></div></PageTransition></body>
+      <body className={`${playfair.variable} ${itim.variable} ${merriweatherSans.variable} ${merriweatherSansBold.variable}`}><PageTransition><SiteHeader /><div className="page-transition-content">{children}<SiteFooter /></div></PageTransition><Analytics /></body>
     </html>
   );
 }
